@@ -10,14 +10,16 @@
 
 
 ***
-##**Team**
+
+## **Team**
 + Luke 
 + Michal
 + Rahul
 + Julian
 
 ***
-##**Commits**
+
+## **Commits**
 Usage:
 
 - Use crucial and appropriate [Gitmojis](https://gitmoji.carloscuesta.me/)!
