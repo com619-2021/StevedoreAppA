@@ -9,15 +9,13 @@
 
 
 
-***
 
 ## **Team**
 + Luke 
 + Michal
 + Rahul
 + Julian
-
-***
+ 
 
 ## **Commits**
 Usage:
@@ -27,7 +25,6 @@ Usage:
 - If project has issues link them to the merge request
 - Fix, Update, Implement are Keys which should be used on every commit
 
-***
 
 ## **GitFlow**
 
