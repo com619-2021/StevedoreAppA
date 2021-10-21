@@ -1,13 +1,13 @@
-# This workflow will build a Java project with Maven
-# For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-maven
+name: Build & Test StevedoreApp - A
 
-name: Build & Test 
-
-on: [push]
+on:
+  push:
+    branches:
+      - main
 
 jobs:
   build:
-    name: Build Maven
+    name: Build & Test StevedoreApp - A
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
