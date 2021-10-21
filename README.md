@@ -7,14 +7,17 @@
 
 </div>
 
-## **Team**
-+ Luke
+
+
+***
+##**Team**
++ Luke 
 + Michal
 + Rahul
 + Julian
 
-
-## **Commits**
+***
+##**Commits**
 Usage:
 
 - Use crucial and appropriate [Gitmojis](https://gitmoji.carloscuesta.me/)!
@@ -22,38 +25,18 @@ Usage:
 - If project has issues link them to the merge request
 - Fix, Update, Implement are Keys which should be used on every commit
 
+***
 
-## **Docker**
+## **GitFlow**
 
+Uses: [gitflow-maven-plugin](https://github.com/aleksandr-m/gitflow-maven-plugin)
 
-Pack image
-```
- mvn clean install -P packageAsDocker
-```
-
-Run image
-```
-docker run -p 8080:8080 solentdevops/order-example:0.1-SNAPSHOT
-
-```
-
-See container logs
-```
-docker logs <container id>
-
-docker logs --follow  <container id>
-```
-
-Stop container
-
-```
-docker stop  <container id>
-```
-
-Stop and remove container
-```
-docker rm -f c3773b47f046
-```
-
-
-
+- `gitflow:release-start` - Starts a release branch and updates version(s) to release version.
+- `gitflow:release-finish` - Merges a release branch and updates version(s) to next development version.
+- `gitflow:release` - Releases project w/o creating a release branch.
+- `gitflow:feature-start` - Starts a feature branch and optionally updates version(s).
+- `gitflow:feature-finish` - Merges a feature branch.
+- `gitflow:hotfix-start` - Starts a hotfix branch and updates version(s) to hotfix version.
+- `gitflow:hotfix-finish` - Merges a hotfix branch.
+- `gitflow:support-start` - Starts a support branch from the production tag.
+- `gitflow:help` - Displays help information.
