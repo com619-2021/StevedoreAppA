@@ -6,9 +6,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 
+@EnableJpaAuditing
 @SpringBootApplication
 @ComponentScan(basePackages = {"uk.ca.solent.devops.stevedore.*"})
 @EntityScan(basePackages = {"uk.ca.solent.devops.stevedore.*"})
