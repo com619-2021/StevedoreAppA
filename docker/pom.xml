@@ -1,23 +1,25 @@
-<project>
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>uk.ac.solent.devops</groupId>
-        <artifactId>stevedore</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
+        <artifactId>parent</artifactId>
+        <groupId>uk.ca.solent.devops</groupId>
+        <version>0.0.1-SNAPSHOT</version>
     </parent>
 
     <artifactId>docker</artifactId>
+    <name>user-example-docker</name>
     <packaging>pom</packaging>
 
     <properties>
-        <!-- see https://dmp.fabric8.io/#image-name -->
-        <docker.name>devops/${project.parent.artifactId}:%v</docker.name>
+        <docker.name>solentdevops/${project.parent.artifactId}:%v</docker.name>
     </properties>
 
     <build>
         <plugins>
-            <!-- this plugin downloads the web app war -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
@@ -32,7 +34,7 @@
                             <artifactItems>
                                 <artifactItem>
                                     <groupId>${project.groupId}</groupId>
-                                    <artifactId>web</artifactId>
+                                    <artifactId>user-example-web</artifactId>
                                     <version>${project.version}</version>
                                     <type>war</type>
                                 </artifactItem>
@@ -44,7 +46,6 @@
                     </execution>
                 </executions>
             </plugin>
-
 
             <plugin>
                 <groupId>io.fabric8</groupId>
@@ -63,4 +64,5 @@
             </plugin>
         </plugins>
     </build>
+
 </project>

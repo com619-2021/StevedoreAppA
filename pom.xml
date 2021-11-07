@@ -8,12 +8,35 @@
     <packaging>pom</packaging>
     <version>0.0.1-SNAPSHOT</version>
 
-    <modules>
-        <module>domain</module>
-        <module>repository</module>
-        <module>service</module>
-        <module>web</module>
-    </modules>
+
+    <profiles>
+        <profile>
+            <id>all</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <modules>
+                <module>domain</module>
+                <module>repository</module>
+                <module>service</module>
+                <module>web</module>
+            </modules>
+        </profile>
+        <!-- this will only work if you are running on a linux machine with installed docker or docker-desktop on windows -->
+        <profile>
+            <id>packageAsDocker</id>
+            <modules>
+                <module>domain</module>
+                <module>repository</module>
+                <module>service</module>
+                <module>web</module>
+                <module>docker</module>
+            </modules>
+        </profile>
+    </profiles>
+
+
+    <modules/>
 
     <name>StevedoreApp</name>
     <description>Assessment Project Smart Harbour Stevedore App - A</description>
