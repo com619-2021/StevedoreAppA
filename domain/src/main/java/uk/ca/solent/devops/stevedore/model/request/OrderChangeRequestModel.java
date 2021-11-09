@@ -4,10 +4,7 @@ import lombok.*;
 import uk.ca.solent.devops.stevedore.model.PartyExecutor;
 import uk.ca.solent.devops.stevedore.model.base.Model;
 
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 import java.util.UUID;
 
@@ -22,6 +19,7 @@ import java.util.UUID;
 @NoArgsConstructor(force = true)
 public class OrderChangeRequestModel extends Model {
 
+    @GeneratedValue
     private UUID uuid;
 
     private String note;
