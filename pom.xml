@@ -122,7 +122,7 @@
                 </configuration>
             </plugin>
 
-            <!-- Copying packed jar files into artifacts folder -->
+            <!-- Copying packed jar files into artifacts folder
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
@@ -131,7 +131,7 @@
                     <outputDirectory>${project.parent.basedir}/artifacts/</outputDirectory>
                 </configuration>
             </plugin>
-
+            -->
 
             <!-- Maven easier GitHub work -->
             <plugin>

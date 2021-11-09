@@ -2,6 +2,7 @@ package uk.ca.solent.devops.stevedore.model.ros;
 
 import lombok.*;
 import uk.ca.solent.devops.stevedore.model.PartyExecutor;
+import uk.ca.solent.devops.stevedore.model.base.Model;
 
 import javax.persistence.*;
 import java.util.List;
@@ -10,13 +11,15 @@ import java.util.UUID;
 
 @Getter
 @Setter
+@Entity
 @Builder
-@Embeddable
+@Table(name = "resource")
 @AllArgsConstructor
 @ToString(callSuper = true)
 @NoArgsConstructor(force = true)
-public class ResourceOrServiceModel {
+public class ResourceOrServiceModel extends Model {
 
+    @GeneratedValue
     private UUID uuid;
 
     private String name;

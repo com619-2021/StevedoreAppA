@@ -19,7 +19,6 @@ public class StevedoreApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(StevedoreApplication.class, args);
-
     }
 
     @Bean
