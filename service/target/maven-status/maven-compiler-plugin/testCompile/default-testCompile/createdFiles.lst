@@ -1,0 +1,4 @@
+uk\ac\solent\devops\model\impl\order\service\test\OrderServiceTest.class
+uk\ac\solent\devops\model\impl\service\test\ServiceFacadeJpaTest.class
+uk\ac\solent\devops\model\impl\resource\service\test\ResourceInventoryServiceTest.class
+uk\ac\solent\devops\model\impl\service\test\ServiceTestConfiguration.class

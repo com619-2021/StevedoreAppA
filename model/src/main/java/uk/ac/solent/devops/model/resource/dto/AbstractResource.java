@@ -1,20 +1,13 @@
 package uk.ac.solent.devops.model.resource.dto;
 
-import java.util.List;
-import javax.persistence.Column;
-import javax.persistence.Convert;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
-import javax.persistence.OneToOne;
+import uk.ac.solent.devops.model.party.dto.Party;
+import uk.ac.solent.devops.model.utilities.CharacteristicListToJsonConverter;
+
+import javax.persistence.*;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
-import uk.ac.solent.devops.model.party.dto.Party;
-import uk.ac.solent.devops.model.utilities.CharacteristicListToJsonConverter;
+import java.util.List;
 
 
 @XmlRootElement

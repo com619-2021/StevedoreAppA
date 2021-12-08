@@ -5,18 +5,18 @@
  */
 package uk.ac.solent.devops.impl.service;
 
-import java.util.Arrays;
-import java.util.Map;
-import java.util.Properties;
-import javax.annotation.PostConstruct;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ConfigurableApplicationContext;
-
 import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.core.env.PropertySource;
+
+import javax.annotation.PostConstruct;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.Properties;
 
 /**
  * This is simply a class to print out hello and prove spring application context is loading

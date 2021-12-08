@@ -5,30 +5,25 @@
        xmlns:tx="http://www.springframework.org/schema/tx"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:jpa="http://www.springframework.org/schema/data/jpa"
-       xmlns:security="http://www.springframework.org/schema/security"
-       xsi:schemaLocation="
-        http://www.springframework.org/schema/beans
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd
         http://www.springframework.org/schema/tx
         http://www.springframework.org/schema/tx/spring-tx.xsd
         http://www.springframework.org/schema/data/jpa
-        http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
-        http://www.springframework.org/schema/security
-	https://www.springframework.org/schema/security/spring-security.xsd
-        ">
+        http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
 
     <!-- Scans for components that will be auto-registered as Spring beans -->
-    <context:component-scan base-package="org.solent.com504.project.impl.service,
-                org.solent.com504.project.impl.user.service, 
-                org.solent.com504.project.impl.dao,
-                org.solent.com504.project.impl.party.service" />
+    <context:component-scan base-package="uk.ac.solent.devops.impl.service,
+                uk.ac.solent.devops.impl.user.service,
+                uk.ac.solent.devops.impl.dao,
+                uk.ac.solent.devops.impl.party.service" />
 
     <!-- Scans for repositories that will be auto-registered -->
-    <jpa:repositories base-package="org.solent.com504.project.impl.dao.user.springdata,
-                 org.solent.com504.project.impl.dao.party.springdata,
-                 org.solent.com504.project.impl.dao.springdata" />
+    <jpa:repositories base-package="uk.ac.solent.devops.impl.dao.user.springdata,
+                 uk.ac.solent.devops.impl.dao.party.springdata,
+                 uk.ac.solent.devops.impl.dao.springdata" />
     <!-- Activates various annotations to be detected in bean classes e.g: @Autowired -->
     <context:annotation-config />
 
@@ -53,7 +48,7 @@
 
     <!-- EntityManagerFactory -->
     <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"
-          p:packagesToScan="org.solent.com504.project.model"
+          p:packagesToScan="uk.ac.solent.devops.model"
           p:dataSource-ref="dataSource" >
         <property name="jpaVendorAdapter">
             <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">

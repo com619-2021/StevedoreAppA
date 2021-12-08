@@ -5,8 +5,9 @@
  */
 package uk.ac.solent.devops.model.user.dao;
 
-import java.util.List;
 import uk.ac.solent.devops.model.user.dto.Role;
+
+import java.util.List;
 
 /**
  *

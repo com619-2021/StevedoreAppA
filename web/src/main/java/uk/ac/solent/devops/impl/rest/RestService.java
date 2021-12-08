@@ -10,19 +10,20 @@ package uk.ac.solent.devops.impl.rest;
  * @author gallenc
  */
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
+import uk.ac.solent.devops.model.dto.ReplyMessage;
+import uk.ac.solent.devops.model.service.ServiceFacade;
+
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import uk.ac.solent.devops.model.dto.ReplyMessage;
-import uk.ac.solent.devops.model.service.ServiceFacade;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Component;
 
 /**
  * To make the ReST interface easier to program. All of the replies are contained in ReplyMessage classes but only the fields indicated are populated with each
@@ -34,7 +35,7 @@ import org.springframework.stereotype.Component;
 public class RestService {
 
     // SETS UP LOGGING 
-    // note that log name will be org.solent.com504.project.impl.rest.RestService
+    // note that log name will be uk.ac.solent.devops.impl.rest.RestService
     final static Logger LOG = LogManager.getLogger(RestService.class);
 
     // This serviceFacade object is injected by Spring
@@ -45,7 +46,7 @@ public class RestService {
     /**
      * this is a very simple rest test message which only returns a string
      *
-     * http://localhost:8080/project-web/rest/appointmentService/
+     * http://localhost:8080/stevedore/rest/appointmentService/
      *
      * @return String simple message
      */
@@ -66,14 +67,14 @@ public class RestService {
     @Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML, MediaType.TEXT_PLAIN})
     @Produces({MediaType.TEXT_PLAIN})
     public String message() {
-        LOG.debug("project-web called");
+        LOG.debug("stevedore called");
         return "Hello, rest!";
     }
 
     /**
      * get heartbeat
      *
-     * http://localhost:8080/project-web/rest/appointmentService/getHeartbeat
+     * http://localhost:8080/stevedore/rest/appointmentService/getHeartbeat
      *
      * @return Response OK and heartbeat in debug message
      */

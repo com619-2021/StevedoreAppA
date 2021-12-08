@@ -5,13 +5,14 @@
  */
 package uk.ac.solent.devops.impl.dao.user.spring;
 
-import java.util.List;
-import java.util.Optional;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import uk.ac.solent.devops.impl.dao.user.springdata.RoleRepository;
 import uk.ac.solent.devops.model.user.dao.RoleDAO;
 import uk.ac.solent.devops.model.user.dto.Role;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+
+import java.util.List;
+import java.util.Optional;
 
 /**
  *

@@ -7,10 +7,10 @@ package uk.ac.solent.devops.impl.order.service;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.stereotype.Service;
 import uk.ac.solent.devops.model.dto.ReplyMessage;
 import uk.ac.solent.devops.model.order.dto.Order;
 import uk.ac.solent.devops.model.order.service.UpdateOrdersService;
-import org.springframework.stereotype.Service;
 
 /**
  *

@@ -5,14 +5,11 @@
  */
 package uk.ac.solent.devops.model.resource.dto;
 
-import java.util.List;
-import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
-import org.mapstruct.MappingTarget;
-import org.mapstruct.NullValueCheckStrategy;
-import org.mapstruct.NullValuePropertyMappingStrategy;
+import org.mapstruct.*;
 import org.mapstruct.factory.Mappers;
 import uk.ac.solent.devops.model.party.dto.Party;
+
+import java.util.List;
 
 /**
  * maps one abstract resource into another abstract resource can be used to map values of resource entity to dto objects

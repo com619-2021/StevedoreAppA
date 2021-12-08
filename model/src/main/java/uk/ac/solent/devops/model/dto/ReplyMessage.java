@@ -1,17 +1,14 @@
 package uk.ac.solent.devops.model.dto;
 
-import java.util.List;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementWrapper;
-import javax.xml.bind.annotation.XmlRootElement;
 import uk.ac.solent.devops.model.order.dto.Order;
 import uk.ac.solent.devops.model.order.dto.OrderChangeRequest;
 import uk.ac.solent.devops.model.party.dto.Party;
 import uk.ac.solent.devops.model.resource.dto.Resource;
 import uk.ac.solent.devops.model.resource.dto.ResourceCatalog;
 import uk.ac.solent.devops.model.user.dto.User;
+
+import javax.xml.bind.annotation.*;
+import java.util.List;
 
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)

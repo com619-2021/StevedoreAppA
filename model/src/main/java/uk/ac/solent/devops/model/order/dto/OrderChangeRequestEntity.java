@@ -1,15 +1,10 @@
 package uk.ac.solent.devops.model.order.dto;
 
-import java.util.Date;
-import javax.persistence.Column;
-import javax.persistence.Convert;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
 import uk.ac.solent.devops.model.party.dto.Party;
 import uk.ac.solent.devops.model.utilities.OrderToJsonConverter;
+
+import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 public class OrderChangeRequestEntity {

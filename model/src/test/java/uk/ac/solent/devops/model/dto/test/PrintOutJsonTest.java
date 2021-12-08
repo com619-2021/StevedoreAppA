@@ -5,10 +5,6 @@
  */
 package uk.ac.solent.devops.model.dto.test;
 
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
-import java.util.UUID;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.Test;
@@ -17,13 +13,18 @@ import uk.ac.solent.devops.model.order.dto.OrderHref;
 import uk.ac.solent.devops.model.order.dto.OrderStatus;
 import uk.ac.solent.devops.model.utilities.PrintOutJson;
 
+import java.util.Arrays;
+import java.util.Date;
+import java.util.List;
+import java.util.UUID;
+
 /**
  *
  * @author cgallen
  */
 public class PrintOutJsonTest {
 
-    final static Logger LOG = LogManager.getLogger(PrintOutJsonTest.class);
+    final static Logger LOG = LogManager.getLogger(uk.ac.solent.devops.model.model.dto.test.PrintOutJsonTest.class);
 
     @Test
     public void test() {

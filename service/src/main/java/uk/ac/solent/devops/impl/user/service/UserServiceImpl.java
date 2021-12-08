@@ -1,23 +1,22 @@
 package uk.ac.solent.devops.impl.user.service;
 
-import java.util.ArrayList;
-import uk.ac.solent.devops.model.user.dto.User;
-import uk.ac.solent.devops.model.user.service.UserService;
-import uk.ac.solent.devops.impl.dao.user.springdata.RoleRepository;
-import uk.ac.solent.devops.impl.dao.user.springdata.UserRepository;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import uk.ac.solent.devops.impl.dao.user.springdata.RoleRepository;
+import uk.ac.solent.devops.impl.dao.user.springdata.UserRepository;
+import uk.ac.solent.devops.model.user.dto.Role;
+import uk.ac.solent.devops.model.user.dto.User;
+import uk.ac.solent.devops.model.user.dto.UserRoles;
+import uk.ac.solent.devops.model.user.service.UserService;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-
-import uk.ac.solent.devops.model.user.dto.Role;
-import uk.ac.solent.devops.model.user.dto.UserRoles;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class UserServiceImpl implements UserService {

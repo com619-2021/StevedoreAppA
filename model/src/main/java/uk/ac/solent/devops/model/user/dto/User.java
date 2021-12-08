@@ -1,27 +1,13 @@
 package uk.ac.solent.devops.model.user.dto;
 
-import java.util.HashSet;
-import java.util.Objects;
-
-import java.util.Set;
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
-import javax.persistence.Transient;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementWrapper;
-import javax.xml.bind.annotation.XmlRootElement;
 import uk.ac.solent.devops.model.party.dto.Address;
 import uk.ac.solent.devops.model.party.dto.Party;
+
+import javax.persistence.*;
+import javax.xml.bind.annotation.*;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
 
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)

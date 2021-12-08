@@ -5,13 +5,14 @@
  */
 package uk.ac.solent.devops.impl.dao.party.spring;
 
-import java.util.List;
-import uk.ac.solent.devops.model.party.dto.Party;
-import uk.ac.solent.devops.model.party.dto.PartyRole;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import uk.ac.solent.devops.model.party.dao.PartyDAO;
 import uk.ac.solent.devops.impl.dao.party.springdata.PartyRepository;
+import uk.ac.solent.devops.model.party.dao.PartyDAO;
+import uk.ac.solent.devops.model.party.dto.Party;
+import uk.ac.solent.devops.model.party.dto.PartyRole;
+
+import java.util.List;
 
 
 /**

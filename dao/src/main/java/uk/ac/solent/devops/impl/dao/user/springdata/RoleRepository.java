@@ -1,9 +1,10 @@
 package uk.ac.solent.devops.impl.dao.user.springdata;
 
-import java.util.List;
-import uk.ac.solent.devops.model.user.dto.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.query.Param;
+import uk.ac.solent.devops.model.user.dto.Role;
+
+import java.util.List;
 
 public interface RoleRepository extends JpaRepository<Role, Long>{
     

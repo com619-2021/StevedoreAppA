@@ -5,9 +5,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
-@SpringBootApplication(scanBasePackages = {"org.solent.com504.project.impl.web",
-        "org.solent.com504.project.impl.rest",
-        "org.solent.com504.project.impl.validator" })
+@SpringBootApplication(scanBasePackages = {"uk.ac.solent.devops.impl.web",
+        "uk.ac.solent.devops.impl.rest",
+        "uk.ac.solent.devops.impl.validator" })
 public class SpringBootJspApplication extends SpringBootServletInitializer {
 
     @Override

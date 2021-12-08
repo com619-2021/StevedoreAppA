@@ -10,34 +10,24 @@ package uk.ac.solent.devops.impl.rest;
  * @author gallenc
  */
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedHashSet;
-
-import java.util.List;
-import java.util.Set;
-import javax.ws.rs.Consumes;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
-import javax.ws.rs.core.Context;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
-import javax.ws.rs.core.UriInfo;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 import uk.ac.solent.devops.model.dto.ReplyMessage;
 import uk.ac.solent.devops.model.party.dto.Party;
 import uk.ac.solent.devops.model.party.service.PartyService;
 import uk.ac.solent.devops.model.user.dto.Role;
 import uk.ac.solent.devops.model.user.dto.User;
 import uk.ac.solent.devops.model.user.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-import org.springframework.transaction.annotation.Transactional;
+
+import javax.ws.rs.*;
+import javax.ws.rs.core.Context;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.core.UriInfo;
+import java.util.*;
 
 /**
  * To make the ReST interface easier to program. All of the replies are contained in ReplyMessage classes but only the fields indicated are populated with each
@@ -49,7 +39,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class UserRestService {
 
     // SETS UP LOGGING 
-    // note that log name will be org.solent.com504.project.impl.rest.RestService
+    // note that log name will be uk.ac.solent.devops.impl.rest.RestService
     final static Logger LOG = LogManager.getLogger(UserRestService.class);
 
     @Autowired
@@ -61,7 +51,7 @@ public class UserRestService {
         /**
      * this is a very simple rest test message which only returns a string
      *
-     * http://localhost:8080/project-web/rest/solent-api/party/v1/party
+     * http://localhost:8080/stevedore/rest/solent-api/party/v1/party
      *
      * @return String simple message
      */
@@ -82,7 +72,7 @@ public class UserRestService {
     @Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML, MediaType.TEXT_PLAIN})
     @Produces({MediaType.TEXT_PLAIN})
     public String message() {
-        LOG.debug("project-web called");
+        LOG.debug("stevedore called");
         return "Hello, rest!";
     }
 

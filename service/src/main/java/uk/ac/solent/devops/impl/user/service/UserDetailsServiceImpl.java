@@ -1,22 +1,22 @@
 package uk.ac.solent.devops.impl.user.service;
 
-import uk.ac.solent.devops.model.user.dto.Role;
-import uk.ac.solent.devops.model.user.dto.User;
-import uk.ac.solent.devops.impl.dao.user.springdata.UserRepository;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
+import uk.ac.solent.devops.impl.dao.user.springdata.UserRepository;
+import uk.ac.solent.devops.model.party.dto.Party;
+import uk.ac.solent.devops.model.user.dto.Role;
+import uk.ac.solent.devops.model.user.dto.User;
 
 import java.util.HashSet;
 import java.util.Set;
-import uk.ac.solent.devops.model.party.dto.Party;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import org.springframework.stereotype.Component;
 
 @Component
 public class UserDetailsServiceImpl implements UserDetailsService {

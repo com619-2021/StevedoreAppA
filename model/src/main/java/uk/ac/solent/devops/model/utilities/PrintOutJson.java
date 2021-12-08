@@ -12,8 +12,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.util.StdDateFormat;
 import com.fasterxml.jackson.module.jaxb.JaxbAnnotationIntrospector;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *

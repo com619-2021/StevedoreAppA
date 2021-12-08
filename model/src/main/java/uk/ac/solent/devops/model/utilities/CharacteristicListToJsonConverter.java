@@ -8,10 +8,11 @@ package uk.ac.solent.devops.model.utilities;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import java.util.List;
+import uk.ac.solent.devops.model.resource.dto.Characteristic;
+
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;
-import uk.ac.solent.devops.model.resource.dto.Characteristic;
+import java.util.List;
 
 // see https://stackoverflow.com/questions/16373811/how-to-map-an-arraylist-of-primitives-to-a-single-column
 

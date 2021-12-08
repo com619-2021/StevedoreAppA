@@ -5,11 +5,11 @@
  */
 package uk.ac.solent.devops.impl.service;
 
-import uk.ac.solent.devops.impl.dao.spring.PersistenceJPAConfig;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
+import uk.ac.solent.devops.impl.dao.spring.PersistenceJPAConfig;
 
 /**
  *
@@ -17,11 +17,11 @@ import org.springframework.context.annotation.Import;
  */
 @Configuration
 
-@ComponentScan(basePackages = {"org.solent.com504.project.impl.party.service",
-    "org.solent.com504.project.impl.service",
-    "org.solent.com504.project.impl.user.service",
-    "org.solent.com504.project.impl.resource.service",
-    "org.solent.com504.project.impl.order.service"
+@ComponentScan(basePackages = {"uk.ac.solent.devops.impl.party.service",
+    "uk.ac.solent.devops.impl.service",
+    "uk.ac.solent.devops.impl.user.service",
+    "uk.ac.solent.devops.impl.resource.service",
+    "uk.ac.solent.devops.impl.order.service"
 })
 @Import({PersistenceJPAConfig.class, SecurityServiceConfiguration.class})
 public class ServiceConfiguration {

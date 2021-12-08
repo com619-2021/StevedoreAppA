@@ -6,9 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="order-example-service" />
+        <module name="dao" />
+        <module name="order-example-dao" />
         <module name="web" />
         <module name="service" />
-        <module name="dao" />
+        <module name="order-example-web" />
       </profile>
       <profile name="Annotation profile for stevedore" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
@@ -29,17 +32,19 @@
           <entry name="$MAVEN_REPOSITORY$/org/springframework/spring-context/4.0.3.RELEASE/spring-context-4.0.3.RELEASE.jar" />
           <entry name="$MAVEN_REPOSITORY$/joda-time/joda-time/2.9/joda-time-2.9.jar" />
         </processorPath>
+        <module name="order-example-model" />
         <module name="model" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="client" target="1.8" />
-      <module name="swagger-generated-client" target="1.8" />
+      <module name="order-example-client" target="1.8" />
+      <module name="order-example-swagger-generated-client" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="model" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.suppressGeneratorVersionInfoComment=true" />
+      <module name="order-example-model" options="-Amapstruct.suppressGeneratorTimestamp=true -Amapstruct.suppressGeneratorVersionInfoComment=true" />
     </option>
   </component>
 </project>

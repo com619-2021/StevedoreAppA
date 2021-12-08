@@ -5,15 +5,16 @@
  */
 package uk.ac.solent.devops.impl.party.service;
 
-import java.util.Arrays;
-import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import uk.ac.solent.devops.model.party.dao.PartyDAO;
 import uk.ac.solent.devops.model.party.dto.Party;
 import uk.ac.solent.devops.model.party.dto.PartyRole;
 import uk.ac.solent.devops.model.party.service.PartyService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+
+import java.util.Arrays;
+import java.util.List;
 
 /**
  *

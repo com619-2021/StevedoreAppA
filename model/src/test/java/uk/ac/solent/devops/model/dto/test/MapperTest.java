@@ -5,9 +5,6 @@
  */
 package uk.ac.solent.devops.model.dto.test;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.Test;
@@ -20,13 +17,17 @@ import uk.ac.solent.devops.model.resource.dto.Characteristic;
 import uk.ac.solent.devops.model.resource.dto.Resource;
 import uk.ac.solent.devops.model.resource.dto.ResourceCatalog;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+
 /**
  *
  * @author cgallen
  */
 public class MapperTest {
 
-    final static Logger LOG = LogManager.getLogger(MapperTest.class);
+    final static Logger LOG = LogManager.getLogger(uk.ac.solent.devops.model.model.dto.test.MapperTest.class);
 
     public Resource createTestResource() {
         Resource resource = new Resource();

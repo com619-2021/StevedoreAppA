@@ -2,10 +2,11 @@ package uk.ac.solent.devops.impl.dao.spring;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.JpaVendorAdapter;
@@ -16,17 +17,15 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
 import java.util.Properties;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @Configuration
-@ComponentScan(basePackages = {"org.solent.com504.project.impl.dao.party.spring",
-    "org.solent.com504.project.impl.dao.user.spring"})
+@ComponentScan(basePackages = {"uk.ac.solent.devops.impl.dao.party.spring",
+    "uk.ac.solent.devops.impl.dao.user.spring"})
 @EnableTransactionManagement
-@EnableJpaRepositories(basePackages = {"org.solent.com504.project.impl.dao.party.springdata",
-    "org.solent.com504.project.impl.dao.user.springdata",
-    "org.solent.com504.project.impl.dao.resource.springdata",
-    "org.solent.com504.project.impl.dao.order.springdata"
+@EnableJpaRepositories(basePackages = {"uk.ac.solent.devops.impl.dao.party.springdata",
+    "uk.ac.solent.devops.impl.dao.user.springdata",
+    "uk.ac.solent.devops.impl.dao.resource.springdata",
+    "uk.ac.solent.devops.impl.dao.order.springdata"
 })
 // @PropertySource("classpath:persistence-test.properties") // set in calling configuration
 public class PersistenceJPAConfig {
@@ -39,10 +38,10 @@ public class PersistenceJPAConfig {
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
         final LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
         em.setDataSource(dataSource());
-        em.setPackagesToScan("org.solent.com504.project.model.party.dto",
-                "org.solent.com504.project.model.user.dto",
-                "org.solent.com504.project.model.resource.dto",
-                "org.solent.com504.project.model.order.dto");
+        em.setPackagesToScan("uk.ac.solent.devops.model.party.dto",
+                "uk.ac.solent.devops.model.user.dto",
+                "uk.ac.solent.devops.model.resource.dto",
+                "uk.ac.solent.devops.model.order.dto");
 
         final JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         em.setJpaVendorAdapter(vendorAdapter);

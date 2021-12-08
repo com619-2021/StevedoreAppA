@@ -1,0 +1,9 @@
+uk\ac\solent\devops\model\impl\dao\order\springdata\test\OrderRepositoryTest.class
+uk\ac\solent\devops\model\impl\dao\user\spring\test\RoleDAOTest.class
+uk\ac\solent\devops\model\impl\dao\user\springdata\test\UserRepositoryTest.class
+uk\ac\solent\devops\model\impl\dao\party\springdata\test\PartyRepositoryTest.class
+uk\ac\solent\devops\model\impl\dao\resource\springdata\test\ResourceRepositoryAndCatalogTest.class
+uk\ac\solent\devops\model\impl\dao\spring\test\DAOTestConfiguration.class
+uk\ac\solent\devops\model\impl\dao\user\springdata\test\RoleRepositoryTest.class
+uk\ac\solent\devops\model\impl\dao\spring\test\PartyDAOTest.class
+uk\ac\solent\devops\model\impl\dao\user\spring\test\UserDAOTest.class

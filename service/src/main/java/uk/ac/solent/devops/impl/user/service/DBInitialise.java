@@ -6,24 +6,23 @@
 package uk.ac.solent.devops.impl.user.service;
 
 
-import java.text.SimpleDateFormat;
-import java.util.HashSet;
-import java.util.Set;
-import javax.annotation.PostConstruct;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Component;
 import uk.ac.solent.devops.impl.dao.party.springdata.PartyRepository;
 import uk.ac.solent.devops.impl.dao.user.springdata.RoleRepository;
 import uk.ac.solent.devops.impl.dao.user.springdata.UserRepository;
-
 import uk.ac.solent.devops.model.party.dto.Party;
 import uk.ac.solent.devops.model.user.dto.Role;
 import uk.ac.solent.devops.model.user.dto.User;
 import uk.ac.solent.devops.model.user.dto.UserRoles;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.stereotype.Component;
+
+import javax.annotation.PostConstruct;
+import java.text.SimpleDateFormat;
+import java.util.HashSet;
+import java.util.Set;
 
 
 /**

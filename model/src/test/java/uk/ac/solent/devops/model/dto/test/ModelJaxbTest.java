@@ -6,53 +6,33 @@
  */
 package uk.ac.solent.devops.model.dto.test;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.junit.Before;
+import uk.ac.solent.devops.model.dto.ReplyMessage;
+import uk.ac.solent.devops.model.order.dto.*;
+import uk.ac.solent.devops.model.party.dto.*;
+import uk.ac.solent.devops.model.resource.dto.*;
+import uk.ac.solent.devops.model.user.dto.Role;
+import uk.ac.solent.devops.model.user.dto.User;
+import uk.ac.solent.devops.model.user.dto.UserRoles;
+
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
+import javax.xml.bind.Unmarshaller;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.InputStream;
 import java.io.StringWriter;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-import java.util.UUID;
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Marshaller;
-import javax.xml.bind.Unmarshaller;
-import static org.junit.Assert.assertEquals;
-import org.junit.Test;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import org.junit.Before;
+import java.util.*;
 
-import uk.ac.solent.devops.model.party.dto.Party;
-import uk.ac.solent.devops.model.party.dto.Address;
-import uk.ac.solent.devops.model.dto.ReplyMessage;
-import uk.ac.solent.devops.model.order.dto.ChangeStatus;
-import uk.ac.solent.devops.model.order.dto.Order;
-import uk.ac.solent.devops.model.order.dto.OrderChangeRequest;
-import uk.ac.solent.devops.model.order.dto.OrderHref;
-import uk.ac.solent.devops.model.order.dto.OrderMapper;
-import uk.ac.solent.devops.model.order.dto.OrderStatus;
-import uk.ac.solent.devops.model.party.dto.PartyHref;
-import uk.ac.solent.devops.model.party.dto.PartyMapper;
-import uk.ac.solent.devops.model.party.dto.PartyRole;
-import uk.ac.solent.devops.model.party.dto.PartyStatus;
-import uk.ac.solent.devops.model.resource.dto.AbstractResource;
-import uk.ac.solent.devops.model.resource.dto.AbstractResourceMapper;
-import uk.ac.solent.devops.model.resource.dto.Characteristic;
-import uk.ac.solent.devops.model.resource.dto.Resource;
-import uk.ac.solent.devops.model.resource.dto.ResourceHref;
-import uk.ac.solent.devops.model.user.dto.Role;
-import uk.ac.solent.devops.model.user.dto.User;
-import uk.ac.solent.devops.model.user.dto.UserRoles;
+import static org.junit.Assert.assertEquals;
 
 public class ModelJaxbTest {
 
-    final static Logger LOG = LogManager.getLogger(ModelJaxbTest.class);
+    final static Logger LOG = LogManager.getLogger(uk.ac.solent.devops.model.model.dto.test.ModelJaxbTest.class);
 
     public JAXBContext jaxbContext;
 
@@ -62,11 +42,11 @@ public class ModelJaxbTest {
         // NOTE you must also have a jaxb.index or jaxb ObjectFactory in the same classpath
         try {
             jaxbContext = JAXBContext.newInstance(
-                    "org.solent.com504.project.model.dto"
-                    + ":org.solent.com504.project.model.user.dto"
-                    + ":org.solent.com504.project.model.party.dto"
-                    + ":org.solent.com504.project.model.resource.dto"
-                    + ":org.solent.com504.project.model.order.dto");
+                    "uk.ac.solent.devops.model.dto"
+                    + ":uk.ac.solent.devops.model.user.dto"
+                    + ":uk.ac.solent.devops.model.party.dto"
+                    + ":uk.ac.solent.devops.model.resource.dto"
+                    + ":uk.ac.solent.devops.model.order.dto");
         } catch (JAXBException e) {
             throw new RuntimeException("problem creating jaxb context", e);
         }

@@ -5,17 +5,18 @@
  */
 package uk.ac.solent.devops.impl.dao.user.spring;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import uk.ac.solent.devops.impl.dao.user.springdata.RoleRepository;
 import uk.ac.solent.devops.impl.dao.user.springdata.UserRepository;
 import uk.ac.solent.devops.model.user.dao.UserDAO;
 import uk.ac.solent.devops.model.user.dto.Role;
 import uk.ac.solent.devops.model.user.dto.User;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+import java.util.Set;
 
 /**
  *

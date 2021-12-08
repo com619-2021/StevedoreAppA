@@ -1,13 +1,13 @@
 package uk.ac.solent.devops.impl.validator;
 
 
-import uk.ac.solent.devops.model.user.dto.User;
-import uk.ac.solent.devops.model.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
+import uk.ac.solent.devops.model.user.dto.User;
+import uk.ac.solent.devops.model.user.service.UserService;
 
 @Component
 public class UserValidator implements Validator {

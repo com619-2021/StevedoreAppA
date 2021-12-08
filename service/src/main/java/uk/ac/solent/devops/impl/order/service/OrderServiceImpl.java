@@ -5,11 +5,11 @@
  */
 package uk.ac.solent.devops.impl.order.service;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.UUID;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import uk.ac.solent.devops.impl.dao.order.springdata.OrderChangeRequestRepository;
 import uk.ac.solent.devops.impl.dao.order.springdata.OrderRepository;
 import uk.ac.solent.devops.impl.dao.party.springdata.PartyRepository;
@@ -22,9 +22,10 @@ import uk.ac.solent.devops.model.order.dto.OrderMapper;
 import uk.ac.solent.devops.model.order.service.OrderService;
 import uk.ac.solent.devops.model.party.dto.Party;
 import uk.ac.solent.devops.model.resource.dto.ResourceAccess;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.UUID;
 
 /**
  *

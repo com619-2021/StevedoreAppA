@@ -5,14 +5,11 @@
  */
 package uk.ac.solent.devops.impl.resource.service;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.Iterator;
-import java.util.List;
-import java.util.UUID;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import uk.ac.solent.devops.impl.dao.party.springdata.PartyRepository;
 import uk.ac.solent.devops.impl.dao.resource.springdata.ResourceCatalogRepository;
 import uk.ac.solent.devops.impl.dao.resource.springdata.ResourceRepository;
@@ -21,11 +18,9 @@ import uk.ac.solent.devops.model.resource.dto.AbstractResourceMapper;
 import uk.ac.solent.devops.model.resource.dto.Characteristic;
 import uk.ac.solent.devops.model.resource.dto.ResourceAccess;
 import uk.ac.solent.devops.model.resource.dto.ResourceCatalog;
-
 import uk.ac.solent.devops.model.resource.service.ResourceCatalogService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+
+import java.util.*;
 
 /**
  *
