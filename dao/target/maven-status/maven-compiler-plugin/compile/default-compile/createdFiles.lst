@@ -1,0 +1,11 @@
+uk\ac\solent\devops\impl\dao\order\springdata\OrderChangeRequestRepository.class
+uk\ac\solent\devops\impl\dao\user\spring\UserDAOImplSpring.class
+uk\ac\solent\devops\impl\dao\order\springdata\OrderRepository.class
+uk\ac\solent\devops\impl\dao\party\springdata\PartyRepository.class
+uk\ac\solent\devops\impl\dao\user\spring\RoleDAOImplSpring.class
+uk\ac\solent\devops\impl\dao\user\springdata\RoleRepository.class
+uk\ac\solent\devops\impl\dao\resource\springdata\ResourceRepository.class
+uk\ac\solent\devops\impl\dao\party\spring\PartyDAOImplSpring.class
+uk\ac\solent\devops\impl\dao\user\springdata\UserRepository.class
+uk\ac\solent\devops\impl\dao\spring\PersistenceJPAConfig.class
+uk\ac\solent\devops\impl\dao\resource\springdata\ResourceCatalogRepository.class
