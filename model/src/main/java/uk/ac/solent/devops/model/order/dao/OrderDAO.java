@@ -1,4 +1,0 @@
-package uk.ac.solent.devops.model.order.dao;
-
-public interface OrderDAO {
-}
