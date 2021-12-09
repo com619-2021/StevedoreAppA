@@ -9,9 +9,9 @@ import java.util.List;
 
 public interface UserRepository extends JpaRepository<User, Long> {
 
-    public User findByUsername(String username);
+    User findByUsername(String username);
 
     @Query("select u from User u where u.firstName = :firstName and u.secondName = :secondName")
-    public List<User> findByNames(@Param("firstName") String firstName, @Param("secondName") String secondName);
+    List<User> findByNames(@Param("firstName") String firstName, @Param("secondName") String secondName);
     
 }

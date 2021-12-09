@@ -1,6 +1,5 @@
 package uk.ac.solent.devops.impl.dao.spring;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -16,24 +15,26 @@ import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
+import java.util.Objects;
 import java.util.Properties;
 
 @Configuration
-@ComponentScan(basePackages = {"uk.ac.solent.devops.impl.dao.party.spring",
-    "uk.ac.solent.devops.impl.dao.user.spring"})
+@ComponentScan(basePackages = {
+        "uk.ac.solent.devops.impl.dao.user.spring"})
 @EnableTransactionManagement
-@EnableJpaRepositories(basePackages = {"uk.ac.solent.devops.impl.dao.party.springdata",
-    "uk.ac.solent.devops.impl.dao.user.springdata",
-    "uk.ac.solent.devops.impl.dao.resource.springdata",
-    "uk.ac.solent.devops.impl.dao.order.springdata"
+@EnableJpaRepositories(basePackages = {
+        "uk.ac.solent.devops.impl.dao.user.springdata",
+        "uk.ac.solent.devops.impl.dao.resource.springdata"
 })
 // @PropertySource("classpath:persistence-test.properties") // set in calling configuration
 public class PersistenceJPAConfig {
 
-    @Autowired
-    private Environment env;
+    private final Environment env;
 
-    // beans
+    public PersistenceJPAConfig(Environment env) {
+        this.env = env;
+    }
+
     @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
         final LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
@@ -66,7 +67,7 @@ public class PersistenceJPAConfig {
             throw new IllegalArgumentException("jdbc.pass must be set in properties");
         }
 
-        dataSource.setDriverClassName(env.getProperty("jdbc.driverClassName"));
+        dataSource.setDriverClassName(Objects.requireNonNull(env.getProperty("jdbc.driverClassName")));
         dataSource.setUrl(env.getProperty("jdbc.url"));
         dataSource.setUsername(env.getProperty("jdbc.user"));
         dataSource.setPassword(env.getProperty("jdbc.pass"));

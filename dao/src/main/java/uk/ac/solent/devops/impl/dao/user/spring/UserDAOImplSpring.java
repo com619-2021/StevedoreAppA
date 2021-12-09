@@ -1,11 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package uk.ac.solent.devops.impl.dao.user.spring;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import uk.ac.solent.devops.impl.dao.user.springdata.RoleRepository;
 import uk.ac.solent.devops.impl.dao.user.springdata.UserRepository;
@@ -15,29 +9,22 @@ import uk.ac.solent.devops.model.user.dto.User;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
-import java.util.Set;
 
-/**
- *
- * @author cgallen
- */
 @Component
 public class UserDAOImplSpring implements UserDAO {
 
-    @Autowired
-    private UserRepository userRepository = null;
+    private final UserRepository userRepository;
 
-    @Autowired
-    private RoleRepository roleRepository = null;
+    private final RoleRepository roleRepository;
+
+    public UserDAOImplSpring(UserRepository userRepository, RoleRepository roleRepository) {
+        this.userRepository = userRepository;
+        this.roleRepository = roleRepository;
+    }
 
     @Override
     public User findById(Long id) {
-        Optional<User> o = userRepository.findById(id);
-        if (o.isPresent()) {
-            return o.get();
-        }
-        return null;
+        return userRepository.findById(id).orElse(null);
     }
 
     @Override
@@ -66,17 +53,10 @@ public class UserDAOImplSpring implements UserDAO {
     }
 
     @Override
-    public List<User> findByRoleName(String rolename) {
-        // there should only be one of each role
-        List<Role> roles = roleRepository.findByName(rolename);
-
-        if (roles.isEmpty()) {
-            return new ArrayList<User>();
-        }
-
-        Set<User> userSet = roles.get(0).getUsers();
-
-        return new ArrayList<User>(userSet);
+    public List<User> findByRoleName(String roleName) {
+        List<Role> roles = roleRepository.findByName(roleName);
+        if (roles.isEmpty()) return new ArrayList<>();
+        return new ArrayList<>(roles.get(0).getUsers());
     }
 
     @Override
