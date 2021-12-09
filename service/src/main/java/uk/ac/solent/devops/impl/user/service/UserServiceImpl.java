@@ -2,7 +2,6 @@ package uk.ac.solent.devops.impl.user.service;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,24 +12,25 @@ import uk.ac.solent.devops.model.user.dto.User;
 import uk.ac.solent.devops.model.user.dto.UserRoles;
 import uk.ac.solent.devops.model.user.service.UserService;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 public class UserServiceImpl implements UserService {
     final static Logger LOG = LogManager.getLogger(UserServiceImpl.class);
 
-    @Autowired
-    private UserRepository userRepository;
-    @Autowired
-    private RoleRepository roleRepository;
-    @Autowired
-    private BCryptPasswordEncoder bCryptPasswordEncoder;
+    private final UserRepository userRepository;
+    private final RoleRepository roleRepository;
+    private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    // @Autowired
-    // private UserDAO userDAO;
+    public UserServiceImpl(UserRepository userRepository, RoleRepository roleRepository, BCryptPasswordEncoder bCryptPasswordEncoder) {
+        this.userRepository = userRepository;
+        this.roleRepository = roleRepository;
+        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
+    }
+
     @Override
     public User create(User user) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
@@ -45,7 +45,6 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> findAll() {
-        // return userDAO.findAll();
         return userRepository.findAll();
     }
 
@@ -57,29 +56,29 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional
     public User updateUserRoles(String username, List<String> roleNames) {
-        
         User user = userRepository.findByUsername(username);
+        StringBuilder msg = new StringBuilder("updating user " + username + " with roles :");
+        roleNames.forEach(x -> msg.append(x).append(" "));
+        LOG.debug(msg.toString());
 
-        String msg="updating user "+username+" with roles :";
-        for(String rolename:roleNames){
-            msg=msg+rolename+" ";
-        }
-        LOG.debug(msg);
-        // this could be more efficient
-        Set<Role> newRoles = new HashSet();
-        for (String rolename : roleNames) {
-            List<Role> roles = roleRepository.findByName(rolename);
+        Set<Role> newRoles = new HashSet<>();
+
+        //Lambda introduced in Java 8
+        //roleNames.stream().map(roleRepository::findByName).filter(x -> !x.isEmpty()).map(x -> x.get(0)).collect(Collectors.toList());
+
+        roleNames.forEach(x -> {
+            List<Role> roles = roleRepository.findByName(x);
             if (roles.isEmpty()) {
-                throw new IllegalArgumentException("rolename is not known to system: " + rolename);
+                throw new IllegalArgumentException("RoleName is not known to system: " + x);
             }
             newRoles.add(roles.get(0));
-        }
+        });
+
         user.setRoles(newRoles);
 
         user = userRepository.saveAndFlush(user);
 
         return user;
-
     }
 
     @Override
@@ -89,12 +88,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<String> getAvailableUserRoleNames() {
-        List<Role> roles = roleRepository.findAll();
-        List<String> roleStrings = new ArrayList();
-        for (Role role : roles) {
-            roleStrings.add(role.getName());
-        }
-        return roleStrings;
+        return roleRepository.findAll().stream().map(Role::getName).collect(Collectors.toList());
     }
 
 }

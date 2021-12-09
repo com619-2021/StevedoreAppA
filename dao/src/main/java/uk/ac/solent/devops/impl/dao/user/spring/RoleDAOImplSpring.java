@@ -1,36 +1,24 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package uk.ac.solent.devops.impl.dao.user.spring;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import uk.ac.solent.devops.impl.dao.user.springdata.RoleRepository;
 import uk.ac.solent.devops.model.user.dao.RoleDAO;
 import uk.ac.solent.devops.model.user.dto.Role;
 
 import java.util.List;
-import java.util.Optional;
 
-/**
- *
- * @author cgallen
- */
 @Component
 public class RoleDAOImplSpring implements RoleDAO {
 
-    @Autowired
-    private RoleRepository roleRepository = null;
+    private final RoleRepository roleRepository;
+
+    public RoleDAOImplSpring(RoleRepository roleRepository) {
+        this.roleRepository = roleRepository;
+    }
 
     @Override
     public Role findById(Long id) {
-        Optional<Role> o = roleRepository.findById(id);
-        if (o.isPresent()) {
-            return o.get();
-        }
-        return null;
+        return roleRepository.findById(id).orElse(null);
     }
 
     @Override
@@ -59,12 +47,9 @@ public class RoleDAOImplSpring implements RoleDAO {
     }
 
     @Override
-    public Role findByRoleName(String rolename) {
-        // there should only be one of each role
-        List<Role> roles = roleRepository.findByName(rolename);
-        if (roles.isEmpty()) {
-            return null;
-        }
+    public Role findByRoleName(String roleName) {
+        List<Role> roles = roleRepository.findByName(roleName);
+        if (roles.isEmpty()) return null;
         return roles.get(0);
     }
 

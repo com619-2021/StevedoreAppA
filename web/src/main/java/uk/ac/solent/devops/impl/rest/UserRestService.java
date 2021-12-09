@@ -12,12 +12,8 @@ package uk.ac.solent.devops.impl.rest;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
-import uk.ac.solent.devops.model.dto.ReplyMessage;
-import uk.ac.solent.devops.model.party.dto.Party;
-import uk.ac.solent.devops.model.party.service.PartyService;
 import uk.ac.solent.devops.model.user.dto.Role;
 import uk.ac.solent.devops.model.user.dto.User;
 import uk.ac.solent.devops.model.user.service.UserService;
@@ -27,7 +23,9 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * To make the ReST interface easier to program. All of the replies are contained in ReplyMessage classes but only the fields indicated are populated with each
@@ -35,38 +33,18 @@ import java.util.*;
  * replyMessage.getAnimalList() int replyMessage.getCode() replyMessage.getDebugMessage(); * @author cgallen
  */
 @Component // component allows resource to be picked up
-@Path("/solent-api/user/v1/")
+@Path("/user/")
 public class UserRestService {
 
-    // SETS UP LOGGING 
-    // note that log name will be uk.ac.solent.devops.impl.rest.RestService
+
     final static Logger LOG = LogManager.getLogger(UserRestService.class);
 
-    @Autowired
-    private UserService userService;
+    private final UserService userService;
 
-    @Autowired
-    private PartyService partyService;
-    
-        /**
-     * this is a very simple rest test message which only returns a string
-     *
-     * http://localhost:8080/stevedore/rest/solent-api/party/v1/party
-     *
-     * @return String simple message
-     */
-    // swagger annotations
-    /*
-        @Operation(
-            tags = {"user management api"},
-            summary = "all this does is ask for a text 'hello world' response",
-            description = "Returns text hello world",
-            responses = {
-                @ApiResponse(description = "hello world message",
-                        content = @Content(mediaType = "text/plain"))
-            })
 
-     */
+    public UserRestService(UserService userService) {
+        this.userService = userService;
+    }
 
     @GET
     @Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML, MediaType.TEXT_PLAIN})
@@ -76,23 +54,13 @@ public class UserRestService {
         return "Hello, rest!";
     }
 
-    /*
-    @Operation(summary = "Find list of users",
-            tags = {"user management api"},
-            responses = {
-                @ApiResponse(responseCode = "200", description = "successful operation returns user list with one entry", content = @Content(
-                        schema = @Schema(implementation = ReplyMessage.class))),
-                @ApiResponse(responseCode = "404", description = "not found"),
-                @ApiResponse(responseCode = "500", description = "internal server error")
-            })
-
-     */
     @GET
     @Path("/user")
     @Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML, MediaType.TEXT_PLAIN})
     @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     @Transactional(readOnly = true)
     public Response getUsers(@Context UriInfo uriInfo) {
+        /*
         try {
 
             ReplyMessage replyMessage = new ReplyMessage();
@@ -122,24 +90,17 @@ public class UserRestService {
             replyMessage.setDebugMessage("error calling /user getUsers " + ex.getMessage());
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(replyMessage).build();
         }
+
+         */
+        return null;
     }
 
-    /*
-    @Operation(summary = "Find user by username",
-            tags = {"user management api"},
-            responses = {
-                @ApiResponse(responseCode = "200", description = "successful operation returns user list with one entry", content = @Content(
-                        schema = @Schema(implementation = ReplyMessage.class))),
-                @ApiResponse(responseCode = "404", description = "not found"),
-                @ApiResponse(responseCode = "500", description = "internal server error")
-            })
-
-     */
     @GET
     @Path("/user/{username}")
     @Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML, MediaType.TEXT_PLAIN})
     @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     public Response getUser(@PathParam("username") String username, @Context UriInfo uriInfo) {
+        /*
         try {
 
             ReplyMessage replyMessage = new ReplyMessage();
@@ -173,18 +134,10 @@ public class UserRestService {
             replyMessage.setDebugMessage("error calling /user/{username} getUser username=" + username + " error:" + ex.getMessage());
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(replyMessage).build();
         }
+
+         */
+        return null;
     }
-
-    /*
-        @Operation(summary = "Create New User",
-            tags = {"user management api"},
-            responses = {
-                @ApiResponse(responseCode = "200", description = "successful operation returns user list with one entry", content = @Content(
-                        schema = @Schema(implementation = ReplyMessage.class))),
-                @ApiResponse(responseCode = "500", description = "internal server error")
-            })
-
-     */
         
     @POST
     @Path("/user")
@@ -194,6 +147,7 @@ public class UserRestService {
     public Response createUser(@QueryParam("name") String name, 
             @QueryParam("password") String password,
             @Context UriInfo uriInfo) {
+        /*
         try {
 
             ReplyMessage replyMessage = new ReplyMessage();
@@ -229,48 +183,38 @@ public class UserRestService {
             replyMessage.setDebugMessage("error calling /user create user " + ex.getMessage());
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(replyMessage).build();
         }
+
+         */
+        return null;
     }
 
- 
-    /**
-     * clones new uses and unbinds from entitymanager
-     *
-     * @param userList
-     * @return
-     */
     public static List<User> unbindUserList(List<User> userList, String requestPath) {
-        List<User> unboundList = new ArrayList();
+        List<User> unboundList = new ArrayList<>();
 
-        //decouples values from dao
-        for (User user : userList) {
+        userList.forEach(x -> {
             User newUser = new User();
             unboundList.add(newUser);
 
-            // add absolute path href for user
-            String userName = user.getUsername();
+            String userName = x.getUsername();
 
             String href = requestPath.substring(0, requestPath.indexOf("/solent-api/")) + "/solent-api/user/v1/user" + "/" + userName;
             LOG.debug("setting href for username:" + userName + " href=" + href);
             newUser.setHref(href);
 
-            newUser.setAddress(user.getAddress());
-            newUser.setEnabled(user.getEnabled());
-            newUser.setFirstName(user.getFirstName());
-            newUser.setSecondName(user.getSecondName());
+            newUser.setEnabled(x.getEnabled());
+            newUser.setFirstName(x.getFirstName());
+            newUser.setSecondName(x.getSecondName());
             newUser.setUsername(userName);
-            newUser.setId(user.getId());
-            // password is not copied
+            newUser.setId(x.getId());
 
-            Set<Party> newParties = PartyRestService.unbindPartyList(user.getParties(), requestPath);
-            newUser.setParties(newParties);
-            Set<Role> roles = new LinkedHashSet();
-            for (Role role : user.getRoles()) {
+
+            newUser.setRoles(x.getRoles().stream().map(role -> {
                 Role newRole = new Role();
                 newRole.setName(role.getName());
-                roles.add(newRole);
-            }
-            newUser.setRoles(roles);
-        }
+                return newRole;
+            }).collect(Collectors.toSet()));
+        });
+
         return unboundList;
     }
 
