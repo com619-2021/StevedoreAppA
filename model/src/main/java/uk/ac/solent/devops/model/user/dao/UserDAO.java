@@ -18,7 +18,7 @@ public interface UserDAO {
 
     void deleteAll();
 
-    List<User> findByRoleName(String rolename);
+    List<User> findByRoleName(String roleName);
     
     List<User> findByNames(String firstName, String secondName);
 
