@@ -1,6 +1,7 @@
 package uk.ac.solent.devops.impl.service;
 
 import org.springframework.stereotype.Service;
+import uk.ac.solent.devops.impl.dao.service.springdata.ServiceRepository;
 import uk.ac.solent.devops.model.service.dto.ServiceModel;
 import uk.ac.solent.devops.model.service.service.ServiceModelService;
 
@@ -10,9 +11,9 @@ import java.util.UUID;
 @Service
 public class ServiceModelServiceImpl implements ServiceModelService {
 
-    private final ServiceModel serviceModel;
+    private final ServiceRepository serviceModel;
 
-    public ServiceModelServiceImpl(ServiceModel serviceModel) {
+    public ServiceModelServiceImpl(ServiceRepository serviceModel) {
         this.serviceModel = serviceModel;
     }
 
