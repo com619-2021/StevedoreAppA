@@ -48,9 +48,7 @@ public class RoleDAOImplSpring implements RoleDAO {
 
     @Override
     public Role findByRoleName(String roleName) {
-        List<Role> roles = roleRepository.findByName(roleName);
-        if (roles.isEmpty()) return null;
-        return roles.get(0);
+        return roleRepository.findByName(roleName).stream().findFirst().orElse(null);
     }
 
 }

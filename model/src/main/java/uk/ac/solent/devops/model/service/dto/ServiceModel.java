@@ -16,7 +16,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @ToString(callSuper = true)
 @NoArgsConstructor(force = true)
-public class Service extends Model {
+public class ServiceModel extends Model {
 
     @GeneratedValue
     private UUID uuid;

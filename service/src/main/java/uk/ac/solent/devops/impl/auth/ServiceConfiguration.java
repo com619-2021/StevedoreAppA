@@ -1,4 +1,4 @@
-package uk.ac.solent.devops.impl.service;
+package uk.ac.solent.devops.impl.auth;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -10,8 +10,7 @@ import uk.ac.solent.devops.impl.dao.spring.PersistenceJPAConfig;
 
 @ComponentScan(basePackages = {
     "uk.ac.solent.devops.impl.service",
-    "uk.ac.solent.devops.impl.user.service",
-    "uk.ac.solent.devops.impl.resource.service"
+    "uk.ac.solent.devops.impl.user.service"
 })
 @Import({PersistenceJPAConfig.class, SecurityServiceConfiguration.class})
 public class ServiceConfiguration {
