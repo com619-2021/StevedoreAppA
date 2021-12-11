@@ -23,8 +23,7 @@ import java.util.Properties;
         "uk.ac.solent.devops.impl.dao.user.spring"})
 @EnableTransactionManagement
 @EnableJpaRepositories(basePackages = {
-        "uk.ac.solent.devops.impl.dao.user.springdata",
-        "uk.ac.solent.devops.impl.dao.resource.springdata"
+        "uk.ac.solent.devops.impl.dao.user.springdata"
 })
 // @PropertySource("classpath:persistence-test.properties") // set in calling configuration
 public class PersistenceJPAConfig {
@@ -39,10 +38,13 @@ public class PersistenceJPAConfig {
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
         final LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
         em.setDataSource(dataSource());
-        em.setPackagesToScan("uk.ac.solent.devops.model.party.dto",
-                "uk.ac.solent.devops.model.user.dto",
-                "uk.ac.solent.devops.model.resource.dto",
-                "uk.ac.solent.devops.model.order.dto");
+        em.setPackagesToScan(
+                "uk.ac.solent.devops.model.order.dto",
+                "uk.ac.solent.devops.model.party.dto",
+                "uk.ac.solent.devops.model.request.dto",
+                "uk.ac.solent.devops.model.service.dto",
+                "uk.ac.solent.devops.model.user.dto"
+        );
 
         final JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         em.setJpaVendorAdapter(vendorAdapter);
