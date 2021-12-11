@@ -39,12 +39,11 @@ public class PersistenceJPAConfig {
         final LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
         em.setDataSource(dataSource());
         em.setPackagesToScan(
-                "uk.ac.solent.devops.model.party.dto",
-                "uk.ac.solent.devops.model.user.dto",
-                "uk.ac.solent.devops.model.party.dto",
                 "uk.ac.solent.devops.model.order.dto",
+                "uk.ac.solent.devops.model.party.dto",
+                "uk.ac.solent.devops.model.request.dto",
                 "uk.ac.solent.devops.model.service.dto",
-                "uk.ac.solent.devops.model.request.dto"
+                "uk.ac.solent.devops.model.user.dto"
         );
 
         final JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
