@@ -1,4 +1,4 @@
-package uk.ac.solent.devops.impl.service;
+package uk.ac.solent.devops.impl.auth;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

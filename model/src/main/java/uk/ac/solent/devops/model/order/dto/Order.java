@@ -3,13 +3,10 @@ package uk.ac.solent.devops.model.order.dto;
 import lombok.*;
 import uk.ac.solent.devops.model.base.Model;
 import uk.ac.solent.devops.model.order.OrderStatus;
-import uk.ac.solent.devops.model.party.dto.Party;
 import uk.ac.solent.devops.model.service.ResourceType;
-import uk.ac.solent.devops.model.service.dto.Service;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.List;
 import java.util.UUID;
 
 
@@ -36,12 +33,12 @@ public class Order extends Model {
 
     private Date endDate;
 
-    @OneToOne
-    @JoinColumn(name = "party_ID")
-    private Party party;
+    //@OneToOne
+    //@JoinColumn(name = "party_ID")
+    //private Party party;
 
-    @OneToMany(fetch = FetchType.EAGER)
-    private List<Service> services = new java.util.ArrayList<>();
+    //@ManyToMany
+    //private List<ServiceModel> services = new java.util.ArrayList<>();
 
     @Enumerated(EnumType.STRING)
     private OrderStatus orderStatus;

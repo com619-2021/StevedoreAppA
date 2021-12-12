@@ -1,4 +1,4 @@
-package uk.ac.solent.devops.impl.service;
+package uk.ac.solent.devops.impl.auth;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

@@ -4,10 +4,8 @@ import lombok.*;
 import uk.ac.solent.devops.model.base.Model;
 import uk.ac.solent.devops.model.user.dto.User;
 
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.UUID;
 
 @Entity
 @Getter
@@ -18,6 +16,9 @@ import javax.persistence.Table;
 @ToString(callSuper = true)
 @NoArgsConstructor(force = true)
 public class Party extends Model {
+
+    @GeneratedValue
+    private UUID uuid;
 
     private String name;
 
