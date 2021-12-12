@@ -34,7 +34,7 @@ jobs:
       - name: Send dispatch to Repository
         uses: peter-evans/repository-dispatch@v1
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.PAT }}
           repository: com619-2021/IntegrationA 
           event-type: deploy
           client-payload: '{"image_owner": "STEVEDORE_IMAGE" ,"image_tag": "ghcr.io/${{ github.repository_owner }}/stevedore:v0.0.1"}'
