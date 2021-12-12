@@ -1,75 +1,63 @@
 package uk.ac.solent.devops.impl.rest.service;
 
-import org.springframework.stereotype.Component;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.*;
+import uk.ac.solent.devops.impl.dao.service.springdata.ServiceRepository;
 import uk.ac.solent.devops.impl.rest.base.ControllerBase;
 import uk.ac.solent.devops.model.service.dto.ServiceModel;
 
-import javax.ws.rs.*;
-import javax.ws.rs.core.MediaType;
 import java.util.List;
 import java.util.UUID;
 
-@Component
-@Path("/service/")
+@RestController
 public class ServiceController implements ControllerBase<ServiceModel> {
 
-    @POST
-    @Override
-    @Path("/")
-    @Consumes(MediaType.APPLICATION_JSON)
-    public void add(ServiceModel model) {
-        throw new NotImplementedException();
+    private final ServiceRepository serviceRepository;
+
+    public ServiceController(ServiceRepository serviceRepository) {
+        this.serviceRepository = serviceRepository;
     }
 
-    @GET
     @Override
-    @Path("/")
-    @Produces(MediaType.APPLICATION_JSON)
+    @PostMapping("/api/service")
+    public void add(ServiceModel model) {
+
+    }
+
+    @Override
+    @GetMapping(value = "/api/service", produces = {org.springframework.http.MediaType.APPLICATION_JSON_VALUE})
     public List<ServiceModel> get() {
         return null;
     }
 
-    @GET
     @Override
-    @Path("/{id}")
-    @Produces(MediaType.APPLICATION_JSON)
-    public ServiceModel get(@PathParam("id") long id) {
+    @GetMapping(value = "/api/service/{id}", produces = {org.springframework.http.MediaType.APPLICATION_JSON_VALUE})
+    public ServiceModel get(@PathVariable long id) {
         return null;
     }
 
-    @GET
     @Override
-    @Path("/{uuid}")
-    @Produces(MediaType.APPLICATION_JSON)
-    @Consumes({MediaType.APPLICATION_JSON, MediaType.TEXT_PLAIN})
-    public ServiceModel get(@PathParam("uuid") UUID uuid) {
+    @GetMapping(value = "/api/service/{uuid}", produces = {org.springframework.http.MediaType.APPLICATION_JSON_VALUE})
+    public ServiceModel get(@PathVariable UUID uuid) {
         return null;
     }
 
-    @DELETE
     @Override
-    @Path("/{id}")
-    @Consumes({MediaType.APPLICATION_JSON, MediaType.TEXT_PLAIN})
-    public void delete(@PathParam("id") long id) {
+    @DeleteMapping(value = "/api/service/{id}", produces = {org.springframework.http.MediaType.APPLICATION_JSON_VALUE})
+    public void delete(@PathVariable long id) {
 
     }
 
-    @DELETE
     @Override
-    @Path("/{uuid}")
-    @Consumes({MediaType.APPLICATION_JSON, MediaType.TEXT_PLAIN})
-    public void delete(@PathParam("uuid") UUID id) {
+    @DeleteMapping(value = "/api/service/{uuid}", produces = {org.springframework.http.MediaType.APPLICATION_JSON_VALUE})
+    public void delete(@PathVariable UUID id) {
 
     }
 
-
-    @PUT
     @Override
-    @Path("/")
-    @Produces(MediaType.APPLICATION_JSON)
-    @Consumes({MediaType.APPLICATION_JSON, MediaType.TEXT_PLAIN})
+    @PutMapping(value = "/api/service", produces = {MediaType.APPLICATION_JSON_VALUE})
     public ServiceModel update(ServiceModel updateModel) {
         return null;
     }
+
 }

@@ -1,75 +1,66 @@
 package uk.ac.solent.devops.impl.rest.order;
 
-import org.springframework.stereotype.Component;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.*;
+import uk.ac.solent.devops.impl.dao.order.springdata.OrderRepository;
 import uk.ac.solent.devops.impl.rest.base.ControllerBase;
 import uk.ac.solent.devops.model.order.dto.Order;
 
-import javax.ws.rs.*;
-import javax.ws.rs.core.MediaType;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-@Component
-@Path("/order/")
+@RestController
 public class OrderController implements ControllerBase<Order> {
 
-    @POST
+    private final OrderRepository orderRepository;
+
+    public OrderController(OrderRepository orderRepository) {
+        this.orderRepository = orderRepository;
+    }
+
     @Override
-    @Path("/")
-    @Consumes(MediaType.APPLICATION_JSON)
+    @PostMapping("/api/order")
     public void add(Order model) {
-        throw new NotImplementedException();
+
     }
 
-    @GET
     @Override
-    @Path("/")
-    @Produces(MediaType.APPLICATION_JSON)
+    @GetMapping(value = "/api/order", produces = {org.springframework.http.MediaType.APPLICATION_JSON_VALUE})
     public List<Order> get() {
+        return new ArrayList<Order>(){{
+            add(new Order());
+        }};
+    }
+
+    @Override
+    @GetMapping(value = "/api/order/{id}", produces = {org.springframework.http.MediaType.APPLICATION_JSON_VALUE})
+    public Order get(@PathVariable long id) {
         return null;
     }
 
-    @GET
     @Override
-    @Path("/{id}")
-    @Produces(MediaType.APPLICATION_JSON)
-    public Order get(@PathParam("id") long id) {
+    @GetMapping(value = "/api/order/{uuid}", produces = {org.springframework.http.MediaType.APPLICATION_JSON_VALUE})
+    public Order get(@PathVariable UUID uuid) {
         return null;
     }
 
-    @GET
     @Override
-    @Path("/{uuid}")
-    @Produces(MediaType.APPLICATION_JSON)
-    @Consumes({MediaType.APPLICATION_JSON, MediaType.TEXT_PLAIN})
-    public Order get(@PathParam("uuid") UUID uuid) {
-        return null;
-    }
-
-    @DELETE
-    @Override
-    @Path("/{id}")
-    @Consumes({MediaType.APPLICATION_JSON, MediaType.TEXT_PLAIN})
-    public void delete(@PathParam("id") long id) {
+    @DeleteMapping(value = "/api/order/{id}", produces = {org.springframework.http.MediaType.APPLICATION_JSON_VALUE})
+    public void delete(@PathVariable long id) {
 
     }
 
-    @DELETE
     @Override
-    @Path("/{uuid}")
-    @Consumes({MediaType.APPLICATION_JSON, MediaType.TEXT_PLAIN})
-    public void delete(@PathParam("uuid") UUID id) {
+    @DeleteMapping(value = "/api/order/{uuid}", produces = {org.springframework.http.MediaType.APPLICATION_JSON_VALUE})
+    public void delete(@PathVariable UUID uuid) {
 
     }
 
-
-    @PUT
     @Override
-    @Path("/")
-    @Produces(MediaType.APPLICATION_JSON)
-    @Consumes({MediaType.APPLICATION_JSON, MediaType.TEXT_PLAIN})
+    @PutMapping(value = "/api/order", produces = {MediaType.APPLICATION_JSON_VALUE})
     public Order update(Order updateModel) {
         return null;
     }
+
 }

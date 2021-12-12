@@ -1,77 +1,62 @@
 package uk.ac.solent.devops.impl.rest.request;
 
-import org.springframework.stereotype.Component;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.*;
+import uk.ac.solent.devops.impl.dao.request.springdata.OrderChangeRequestRepository;
 import uk.ac.solent.devops.impl.rest.base.ControllerBase;
 import uk.ac.solent.devops.model.request.dto.OrderChangeRequest;
 
-import javax.ws.rs.*;
-import javax.ws.rs.core.MediaType;
 import java.util.List;
 import java.util.UUID;
 
-@Component
-@Path("/order_change/")
+@RestController
 public class RequestController implements ControllerBase<OrderChangeRequest> {
 
+    private final OrderChangeRequestRepository orderChangeRequestRepository;
 
-    @POST
-    @Override
-    @Path("/")
-    @Consumes(MediaType.APPLICATION_JSON)
-    public void add(OrderChangeRequest model) {
-        throw new NotImplementedException();
+    public RequestController(OrderChangeRequestRepository orderChangeRequestRepository) {
+        this.orderChangeRequestRepository = orderChangeRequestRepository;
     }
 
-    @GET
     @Override
-    @Path("/")
-    @Produces(MediaType.APPLICATION_JSON)
+    @PostMapping("/api/ocr")
+    public void add(OrderChangeRequest model) {
+
+    }
+
+    @Override
+    @GetMapping(value = "/api/ocr", produces = {org.springframework.http.MediaType.APPLICATION_JSON_VALUE})
     public List<OrderChangeRequest> get() {
         return null;
     }
 
-    @GET
     @Override
-    @Path("/{id}")
-    @Produces(MediaType.APPLICATION_JSON)
-    public OrderChangeRequest get(@PathParam("id") long id) {
+    @GetMapping(value = "/api/ocr/{id}", produces = {org.springframework.http.MediaType.APPLICATION_JSON_VALUE})
+    public OrderChangeRequest get(@PathVariable long id) {
         return null;
     }
 
-    @GET
     @Override
-    @Path("/{uuid}")
-    @Produces(MediaType.APPLICATION_JSON)
-    @Consumes({MediaType.APPLICATION_JSON, MediaType.TEXT_PLAIN})
-    public OrderChangeRequest get(@PathParam("uuid") UUID uuid) {
+    @GetMapping(value = "/api/ocr/{uuid}", produces = {org.springframework.http.MediaType.APPLICATION_JSON_VALUE})
+    public OrderChangeRequest get(@PathVariable UUID uuid) {
         return null;
     }
 
-    @DELETE
     @Override
-    @Path("/{id}")
-    @Consumes({MediaType.APPLICATION_JSON, MediaType.TEXT_PLAIN})
-    public void delete(@PathParam("id") long id) {
+    @DeleteMapping(value = "/api/ocr/{id}", produces = {org.springframework.http.MediaType.APPLICATION_JSON_VALUE})
+    public void delete(@PathVariable long id) {
 
     }
 
-    @DELETE
     @Override
-    @Path("/{uuid}")
-    @Consumes({MediaType.APPLICATION_JSON, MediaType.TEXT_PLAIN})
-    public void delete(@PathParam("uuid") UUID id) {
+    @DeleteMapping(value = "/api/ocr/{uuid}", produces = {org.springframework.http.MediaType.APPLICATION_JSON_VALUE})
+    public void delete(@PathVariable UUID id) {
 
     }
 
-
-    @PUT
     @Override
-    @Path("/")
-    @Produces(MediaType.APPLICATION_JSON)
-    @Consumes({MediaType.APPLICATION_JSON, MediaType.TEXT_PLAIN})
+    @PutMapping(value = "/api/ocr", produces = {MediaType.APPLICATION_JSON_VALUE})
     public OrderChangeRequest update(OrderChangeRequest updateModel) {
         return null;
     }
-
 }
