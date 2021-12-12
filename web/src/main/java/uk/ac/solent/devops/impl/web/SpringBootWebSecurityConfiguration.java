@@ -66,7 +66,7 @@ public class SpringBootWebSecurityConfiguration {
                     .logout()
                     .permitAll()
                     .logoutSuccessUrl("/login?logout")
-                    .and().csrf().ignoringAntMatchers("/rest/**"); // prevents csrf checking on rest api
+                    .and().csrf().ignoringAntMatchers("/api/**"); // prevents csrf checking on rest api
         }
 
     }

@@ -51,15 +51,12 @@
 
     <!-- Scans for components that will be auto-registered as Spring beans -->
     <context:component-scan base-package="uk.ac.solent.devops.impl.service,
-                uk.ac.solent.devops.impl.user.service,
-                uk.ac.solent.devops.impl.party.service,
-                uk.ac.solent.devops.impl.chargingrecord.service,
-                org.solent.devops.message.jms" />
+                uk.ac.solent.devops.impl.user.service" />
     
     
     <!-- this just activates and destroys a bean as an example -->
-    <bean id="helloWorld" class="uk.ac.solent.devops.impl.service.HelloWorld" init-method="init" destroy-method="destroy">
-        <property name="message" value="service applicationContext jms.username ${jms.username}" />
+    <bean id="helloWorld" class="uk.ac.solent.devops.impl.auth.HelloWorld" init-method="init" destroy-method="destroy">
+        <property name="message" value="serviceModel applicationContext jms.username ${jms.username}" />
     </bean>
     
     <!-- JMS Beans -->
