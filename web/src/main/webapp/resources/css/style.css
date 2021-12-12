@@ -1,0 +1,416 @@
+/* CSS Document */
+@font-face {
+    font-family: 'SF-Pro-Display-Regular';
+    src: url('../fonts/SF-Pro-Display-Regular.ttf');
+}
+@font-face {
+    font-family: 'SF-Pro-Display-Bold';
+    src: url('../fonts/SF-Pro-Display-Bold.ttf');
+}
+@font-face {
+    font-family: 'SF-Pro-Display-Light';
+    src: url('../fonts/SF-Pro-Display-Light.ttf');
+}
+@font-face {
+    font-family: 'SF-Pro-Display-Thin';
+    src: url('../fonts/SF-Pro-Display-Thin.ttf');
+}
+
+#headerPageLogo{
+    width: 140px;
+    height: 90px;
+}
+body {
+    background-image: url("../../images/background.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    margin: none;
+    padding: none;
+}
+.mkOrderInput {
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+    border-radius: 20px !important;
+    font-family: "SF-Pro-Display-Regular";
+    background-color: rgba(255, 255, 255, 0.40) !important;
+    outline: none !important;
+    border: none !important;
+}
+.p-relative {
+    position: relative;
+}
+
+.centered .ui-tabs-nav {
+    height: 2.35em;
+    text-align: center;
+}
+.centered .ui-tabs-nav li {
+    display: inline-block;
+    float: none;
+    margin: 0em;
+	background-color: transparent!important;
+	background-image: none!important;
+}
+
+.findOrderInput{
+	height: 50px;
+	border-radius: 10px;
+	outline: none;
+	border: none;
+	font-family: "SF-Pro-Display-Regular";
+}
+
+.findBtn{
+	background-color: #16A596;
+	width: 150px;
+	margin-right: 25px;
+	margin-bottom: 10px;
+	border-radius: 10px;
+	color: white;
+	border: none;
+	height: 40px;
+	font-family: "SF-Pro-Display-Bold";
+}
+
+.findBtn:hover{
+	background-color: rgba(22,165,150,0.90);
+}
+.nav-item{
+	font-family: "SF-Pro-Display-Bold";
+	font-size: 20px;
+	margin-left: 20px;
+	margin-right: 20px;
+	color: black!important;
+}
+
+.nav-link{
+	font-size: 20px;
+	margin-left: 50px;
+        color: black;
+}
+
+.nav-link a{
+	text-decoration: none!important;
+}
+.ui-widget-content{
+	background: transparent!important;
+	border: none!important;
+	outline: none!important;
+	margin: 0px!important;
+}
+
+.ui-tabs-anchor:active, .ui-tabs-anchor:focus{
+     outline:none!important;
+}
+
+.ui-tabs-nav{
+	margin: 0!important;
+	padding: none!important;
+	background-color: transparent!important;
+	background-image: none!important;
+	border: none!important;
+	outline: none!important;
+}
+
+.ui-tabs-tab{
+	outline: none!important;
+	border: none!important;
+	font-family: "SF-Pro-Display-Regular";
+}
+
+.ui-tabs .ui-tabs-nav {
+    display: flex;
+}
+
+.ui-tabs .ui-tabs-nav li {
+    flex: 1;
+    display: flex;
+    /* If placed in a small width sidebar or something like that disabling nowrap will fix the overflow issue */
+    white-space: normal;
+}
+
+.ui-tabs .ui-tabs-nav li a {
+    flex: 1;
+    /* If you want to align tab titles center */
+    text-align: center;
+}
+.ui-tabs .ui-tabs-nav li a {
+    display: block!important;
+    text-decoration: none!important;
+    width: 100%!important;
+}
+
+#tabs-1{
+	margin: 3px 0px 0px 0px!important;
+	border-radius: 0px 0px 30px 30px;
+}
+
+#tabs-2{
+	margin: 3px 0px 0px 0px!important;
+	border-radius: 0px 0px 30px 30px;
+	border: none!important;
+	outline: none!important;
+}
+
+#tabs-3{
+	margin: 3px 0px 0px 0px!important;
+	border-radius: 0px 0px 30px 30px;
+}
+
+#tabs .ui-tabs-nav .ui-state-active a {
+      color: #16A596;
+      font-family: 'SF-Pro-Display-Bold';
+	border: red!important;
+	outline: red!important;
+	margin: 0px!important;
+  }
+
+#tabs.ui-widget-content { border:none!important;}
+
+
+.findTitle{
+	font-family: "SF-Pro-Display-Bold";
+	font-size: 26px;
+	margin-top: 15px;
+}
+
+.findOrderTitle{
+	font-family: "SF-Pro-Display-Bold";
+	font-size: 36px;
+}
+
+.ui-tabs-panel{
+	background-color: transparent!important;
+}
+
+.findOrderContainer{
+	margin-top: 100px;
+}
+.tabContainer{
+	width: 500px;
+}
+.form-check-input {
+    background-color: white !important;
+    border: none !important;
+}
+.form-check-input:checked {
+    background-color: white !important;
+    border: none !important;
+}
+.form-switch .form-check-input {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='red'/%3e%3c/svg%3e") !important;
+}
+.form-switch .form-check-input:checked {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%234BFF00'/%3e%3c/svg%3e") !important;
+    border: none !important;
+}
+.switch-label {
+    font-family: "SF-Pro-Display-Regular";
+}
+.mkOrderBtn {
+    marging-top: 10px !important;
+    color: black !important;
+    font-family: "SF-Pro-Display-Bold";
+}
+.navbar {
+    background-color: rgba(255, 255, 255, .10) !important;
+    backdrop-filter: blur(15px) !important;
+}
+@media (min-width: 1200px) {
+    .MkOrderContainer {
+        width: 600px !important;
+    }
+}
+.form-check-input {
+    height: 20px !important;
+    width: 40px !important;
+    border-radius: 2rem !important;
+}
+.berthInformation {
+    margin-right: 10px;
+}
+.personalInfo {
+    margin-right: 10px;
+}
+.mkOrderBtn {
+    width: 50% !important;
+    border-radius: 30px !important;
+    background-color: #3FD9FD !important;
+    border: none !important;
+    outline: none !important;
+}
+.curvedEdges {
+    border-radius: 30px;
+}
+.backgroundBlur {
+    background-color: rgba(255, 255, 255, .30);
+    backdrop-filter: blur(15px);
+}
+.tableContainer {
+    margin-top: 50px !important;
+    margin-bottom: 50px !important;
+}
+.thead-table {
+    background-color: rgba(63, 217, 253, 0.41);
+}
+.manageOrdersTitle {
+    font-family: "SF-Pro-Display-Bold";
+    font-size: 20px;
+    margin: 10px;
+}
+.MkOrderContainer {
+    margin-top: 100px !important;
+    padding: 1em 2em;
+    background-color: rgba(255, 255, 255, .30);
+    backdrop-filter: blur(15px);
+}
+.order-subheading {
+    font-family: 'SF-Pro-Display-Bold';
+    font-size: 20px;
+}
+.MkOrderContainer h1 {
+    font-family: "SF-Pro-Display-Bold";
+}
+.orderCenter {
+    border-radius: 30px;
+    width: 400px;
+    height: 400px;
+    background-color: rgba(255, 255, 255, .30);
+    backdrop-filter: blur(15px);
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    max-width: 100%;
+    max-height: 100%;
+    overflow: auto;
+    padding: 1em 2em;
+    display: table;
+}
+.form-check-input {
+    width: 100px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.loginFormCenter {
+    border-radius: 30px;
+    width: 400px;
+    height: 400px;
+    background-color: rgba(255, 255, 255, .30);
+    backdrop-filter: blur(15px);
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    max-width: 100%;
+    max-height: 100%;
+    overflow: auto;
+    padding: 1em 2em;
+    display: table;
+}
+div.loginFormContent {
+    display: table-cell;
+    vertical-align: middle;
+}
+div.findOrderContent {
+    display: table-cell;
+    vertical-align: middle;
+}
+.loginSubHeading {
+    font-family: 'SF-Pro-Display-Light';
+    padding-bottom: 20px;
+}
+#loginPageLogo {
+    width: 140px;
+    height: 90px;
+}
+input[type="email"]:focus {
+    background-color: transparent;
+    border: 0px;
+    outline: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    color: black;
+    font-family: 'SF-Pro-Display-Regular'
+}
+input[type="password"]:focus {
+    background-color: transparent;
+    border: 0px;
+    border-bottom: 5px black;
+    outline: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    color: black;
+    margin-top: 10px;
+    font-family: 'SF-Pro-Display-Regular'
+}
+input[type="email"]:visited {
+    background-color: transparent;
+    border: 0px;
+    outline: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    color: black;
+    font-family: 'SF-Pro-Display-Regular'
+}
+input[type="password"]:visited {
+    background-color: transparent;
+    border: 0px;
+    border-bottom: 5px black;
+    outline: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    color: black;
+    margin-top: 10px;
+    font-family: 'SF-Pro-Display-Regular'
+}
+input[type="email"] {
+    background-color: transparent;
+    border: 0px;
+    outline: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    color: transparent;
+    font-family: 'SF-Pro-Display-Regular'
+}
+input[type="password"] {
+    background-color: transparent;
+    border: 0px;
+    border-bottom: 5px black;
+    outline: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    color: transparent;
+    margin-top: 10px;
+    font-family: 'SF-Pro-Display-Regular'
+}
+input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus, input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+    font-family: 'SF-Pro-Display-Regular'
+}
+.forgotPassLink {
+    color: black !important;
+    text-decoration: none !important;
+    font-family: 'SF-Pro-Display-Light';
+}
+.forgotPassLink:hover {
+    color: #3fd9fd !important;
+}
+.loginBtn {
+    float: right;
+    background-color: #3fd9fd !important;
+    border: none !important;
+    color: black !important;
+    font-family: "SF-Pro-Display-Bold";
+}
