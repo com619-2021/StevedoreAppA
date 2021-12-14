@@ -24,7 +24,7 @@ public class SpringBootWebSecurityConfiguration {
                     .disable()
                     .antMatcher("/api/**")
                     .authorizeRequests()
-                    .antMatchers("/api/**", "/swagger-ui.html", "/v2/api-docs/**")
+                    .antMatchers("/api/**")
                     .permitAll();
 
             http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
