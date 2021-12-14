@@ -1,5 +1,6 @@
 package uk.ac.solent.devops.impl.web;
 
+import com.github.javafaker.Faker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.security.core.Authentication;
@@ -12,10 +13,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import uk.ac.solent.devops.impl.validator.UserValidator;
+import uk.ac.solent.devops.model.order.OrderStatus;
+import uk.ac.solent.devops.model.order.dto.Order;
+import uk.ac.solent.devops.model.service.ResourceType;
 import uk.ac.solent.devops.model.user.service.SecurityService;
 import uk.ac.solent.devops.model.user.service.UserService;
 
-import java.util.Collection;
+import java.util.*;
+import java.util.stream.IntStream;
 
 @Controller
 @Transactional
@@ -29,6 +34,8 @@ public class ResourceController {
 
     private final UserValidator userValidator;
 
+    private final Faker faker = new Faker(Locale.UK);
+
     public ResourceController(UserService userService, SecurityService securityService, UserValidator userValidator) {
         this.userService = userService;
         this.securityService = securityService;
@@ -40,6 +47,16 @@ public class ResourceController {
         LOG.debug("resource called:");
 
         model.addAttribute("selectedPage", "resource");
+
+        model.addAttribute("abstractResourceList", new ArrayList<Order>(){{
+
+            IntStream.range(0, 10).forEach(i -> {
+                add(Order.builder().orderStatus(OrderStatus.values()[i % 2]).orderType(ResourceType.values()[i % 2]).name(faker.address().cityName()).orderDate(new Date()).description(faker.beer().name()).uuid(UUID.randomUUID()).startDate(new Date()).build());
+            });
+
+            //add(Order.builder().orderStatus(OrderStatus.CONFIRMED).orderType(ResourceType.INTERNAL).description("TestDescription").name("Test").uuid(UUID.randomUUID()).orderDate(new Date()).endDate(new Date()).build());
+        }});
+
         return "resources";
     }
 
