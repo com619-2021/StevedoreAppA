@@ -20,14 +20,12 @@ public class SpringBootWebSecurityConfiguration {
         @Override
         protected void configure(HttpSecurity http) throws Exception {
             http
-                    .csrf().disable()
-                    .antMatcher("/rest/**")
+                    .csrf()
+                    .disable()
+                    .antMatcher("/api/**")
                     .authorizeRequests()
-                    .antMatchers("/rest/openapi.json").permitAll()
-                    .antMatchers("/rest/**").permitAll() 
-                    //  .antMatchers("/rest/**").hasAnyRole("REST_USER", "GLOBAL_ADMIN") // ROLE_GLOBAL_ADMIN
-                    //  .and().httpBasic();
-                    ;
+                    .antMatchers("/api/**", "/swagger-ui.html", "/v2/api-docs/**")
+                    .permitAll();
 
             http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         }
@@ -41,20 +39,21 @@ public class SpringBootWebSecurityConfiguration {
         protected void configure(HttpSecurity http) throws Exception {
             http
                     .authorizeRequests()
-                    .antMatchers("/",
-                            "/home",
-                            "/contact",
-                            "/about",
+                    .antMatchers(
+                            "/",
                             "/index.html",
                             "/resources/**",
                             "/images/**",
                             "/registration",
-                            "/rest/openapi.json"
+                            "/swagger-resources/**",
+                            "/swagger-ui.html",
+                            "/v2/api-docs",
+                            "/webjars/**"
                     ).permitAll()
-                    .antMatchers("/mvc/**"
-                    ).hasRole("USER") // ROLE_USER 
-                    .antMatchers("/users").hasRole("GLOBAL_ADMIN") // ROLE_GLOBAL_ADMIN
-                    .anyRequest().authenticated()
+                    .antMatchers("/users")
+                    .hasRole("GLOBAL_ADMIN")
+                    .anyRequest()
+                    .authenticated()
                     .and()
                     .formLogin()
                     .loginPage("/login")
@@ -66,7 +65,9 @@ public class SpringBootWebSecurityConfiguration {
                     .logout()
                     .permitAll()
                     .logoutSuccessUrl("/login?logout")
-                    .and().csrf().ignoringAntMatchers("/api/**"); // prevents csrf checking on rest api
+                    .and()
+                    .csrf()
+                    .ignoringAntMatchers("/api/**");
         }
 
     }
