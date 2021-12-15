@@ -19,15 +19,26 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
-    <!--<link rel="canonical" href="https://getbootstrap.com/docs/3.3/examples/navbar/">-->
+    <link rel="canonical" href="https://getbootstrap.com/docs/3.3/examples/navbar/">
 
-    <title>Navbar Template for Bootstrap</title>
+    <title>${contextPath}</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="./resources/css/bootstrap.min.css" rel="stylesheet">
+    <link href="${contextPath}/resources/css/style.css" rel="stylesheet">
+    
+    <!--Luke CSS Links-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script> 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="${contextPath}/resources/packages/bootstrap5/css/bootstrap-datetimepicker.css" rel="stylesheet">
 
-    <!-- Custom styles for this template -->
-    <link href="./resources/css/navbar.css" rel="stylesheet">
+
+
+    <script src="${contextPath}/resources/packages/bootstrap5/js/bootstrap-datetimepicker.js"></script> 
+    <script src="${contextPath}/resources/packages/bootstrap5/js/locales/bootstrap-datetimepicker.uk.js"></script>
+
+    <script src="https://kit.fontawesome.com/6faefcd79e.js" crossorigin="anonymous"></script>
+
 
 </head>
 
@@ -36,47 +47,40 @@
 <header>
 
     <!-- Static navbar -->
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-expand-lg navbar-light pb-10 mb-10 navigation">
         <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                        aria-expanded="false" aria-controls="navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">Project name</a>
-            </div>
-            <div id="navbar" class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
+            <a class="navbar-brand">
+                <img id="headerPageLogo" src="../stevedore/images/logo.png" alt="Stevedore Logo">
+            </a>
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto">
 
                     <!-- this jstl should work but problems with multiple if statements -->
                     <!-- selected page = ${selectedPage} home ${'home'.equals(selectedPage) } about ${'about'.equals(selectedPage) } contact ${'contact'.equals(selectedPage) }-->
                     <!--<li <c:if test="${'home'.equals(selectedPage) }"> class="active"  </c:if> ><a href="${contextPath}/home">Home</a></li>-->
                     <!-- this raw java code works !! -->
-                    <li <% if ("home".equals(request.getAttribute("selectedPage"))) {%> class="active"  <% } %> ><a
-                            href="${contextPath}/home">Home</a></li>
-                    <li <% if ("order".equals(request.getAttribute("selectedPage"))) {%> class="active"  <% } %> ><a
-                            href="${contextPath}/order">Orders</a></li>
-                    <li <% if ("resource".equals(request.getAttribute("selectedPage"))) {%> class="active"  <% } %> ><a
-                            href="${contextPath}/resource">Resource Inventory</a></li>
-                    <li <% if ("catalog".equals(request.getAttribute("selectedPage"))) {%> class="active"  <% }%> ><a
-                            href="${contextPath}/catalog">Resource Catalogue</a></li>
-                    <li <% if ("about".equals(request.getAttribute("selectedPage"))) {%> class="active"  <% } %> ><a
-                            href="${contextPath}/about">About</a></li>
-                    <li <% if ("contact".equals(request.getAttribute("selectedPage"))) {%> class="active"  <% }%> ><a
-                            href="${contextPath}/contact">Contact</a></li>
+                    <li  class="nav-item"<% if ("home".equals(request.getAttribute("selectedPage"))) {%> class="active"  <% } %> ><a
+                            class="nav-link" href="${contextPath}/home">Home</a></li>
+                    <li class="nav-item"<% if ("addUsersToParty".equals(request.getAttribute("selectedPage"))) {%> class="nav-link active"  <% } %> ><a
+                            class="nav-link" href="${contextPath}/addUsersToParty">Create Order</a></li>
 
                     <sec:authorize access="hasRole('ROLE_GLOBAL_ADMIN')">
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                               aria-haspopup="true" aria-expanded="false"> Admin <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="${contextPath}/users">Manage Users</a></li>
-                                <li><a href="${contextPath}/partys">Manage Partys</a></li>
-                            </ul>
-                        </li>
+                 <li class="nav-item"<% if ("resource".equals(request.getAttribute("selectedPage"))) {%> class="nav-link active"  <% } %> ><a
+                            class="nav-link" href="${contextPath}/resource">Resource Inventory</a></li>
+                    <li class="nav-item"<% if ("catalog".equals(request.getAttribute("selectedPage"))) {%> class="nav-link active"  <% }%> ><a
+                            class="nav-link" href="${contextPath}/catalog">Resource Catalogue</a></li>
+<div class="dropdown">
+  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+    Admin
+  </a>
+
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+      <li><a href="${contextPath}/users" class="nav-link">Manage Users</a></li>
+                                <li><a href="${contextPath}/partys" class="nav-link">Manage Partys</a></li>
+  </ul>
+</div>
+                            
                     </sec:authorize>
 
                 </ul>

@@ -4,6 +4,7 @@
 
 <%@page import="java.util.List"%>
 <%@page import="java.util.Date"%>
+<%@page import="uk.ac.solent.devops.model.service.ServiceFacade"%>
 
 
 <%
@@ -15,6 +16,8 @@
     // Set refresh, autoload time every 20 seconds
     response.setIntHeader("Refresh", 20);
 
+    // accessing service 
+    ServiceFacade serviceFacade = (ServiceFacade) request.getAttribute("serviceFacade");
 
     // accessing request parameters
     String actionStr = request.getParameter("action");
